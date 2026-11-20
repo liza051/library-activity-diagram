@@ -1,0 +1,27 @@
+
+flowchart TD
+    Start([Start]) --> ReaderSelect[Reader selects a book copy]
+    ReaderSelect --> Submit[Reader submits reservation request]
+    Submit --> UI[ReservationUI receives request]
+    UI --> Validate[ReservationService validates request]
+    Validate --> CheckCopies{Are any book copies available?}
+
+    CheckCopies -- No --> NoCopies[Display: No copies available]
+    NoCopies --> End1([End - SC-02])
+
+    CheckCopies -- Yes --> CheckSelected{Is the selected copy available?}
+
+    CheckSelected -- No --> AlreadyReserved[Display: Selected copy is already reserved]
+    AlreadyReserved --> End2([End - SC-03])
+
+    CheckSelected -- Yes --> CreateReservation[Create Reservation record]
+    CreateReservation --> Fork((Fork))
+
+    Fork --> UpdateCopy[Update BookCopy status to reserved]
+    Fork --> SendNotification[NotificationService sends confirmation to Reader]
+
+    UpdateCopy --> Join((Join))
+    SendNotification --> Join
+
+    Join --> ShowConfirmation[ReservationUI displays confirmation]
+    ShowConfirmation --> End3([End - SC-01])
