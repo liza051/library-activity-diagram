@@ -1,3 +1,4 @@
+
 # Library Activity Diagram
 
 ## About
@@ -23,3 +24,4 @@ The activity diagram describes the reservation process, including successful and
 
 ## Modeling Tool
 Mermaid flowchart syntax.
+
