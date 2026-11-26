@@ -18,10 +18,11 @@ flowchart TD
     CreateReservation --> Fork((Fork))
 
     Fork --> UpdateCopy[Update BookCopy status to reserved]
-    Fork --> SendNotification[NotificationService sends confirmation to Reader]
+    Fork --> SendNotification[NotificationService sends confirmation message to Reader]
+    SendNotification --> ReceiveNotification[Reader receives confirmation message]
 
     UpdateCopy --> Join((Join))
-    SendNotification --> Join
+    ReceiveNotification --> Join
 
     Join --> ShowConfirmation[ReservationUI displays confirmation]
     ShowConfirmation --> End3([End - SC-01])

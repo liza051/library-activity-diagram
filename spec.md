@@ -52,10 +52,13 @@ The process covers the submission and validation of a reservation request, reser
 
 ## 5. Message Communication
 
-- **Sender:** NotificationService.
-- **Receiver:** Reader.
-- **Message:** Reservation confirmation.
-- **Process behavior:** The notification is sent without waiting for the Reader's response. The process continues and completes after the parallel activities join.
+- Sender: NotificationService.
+- Receiver: Reader.
+- Message: Reservation confirmation.
+- After sending the message, Reader receives the confirmation notification.
+- The process does not wait for an additional response from the Reader.
+- The notification activity and the BookCopy status update execute in parallel.
+- The process continues to the synchronization point after both activities are completed.
 
 ## 6. Parallel Activities
 
@@ -67,6 +70,8 @@ A synchronization point joins both branches before the process ends.
 
 ## 7. Selected Modeling Form
 
-**UML Activity Diagram using Mermaid flowchart syntax.**
+UML Activity Diagram using Mermaid flowchart syntax.
 
-This form was selected because it clearly represents business process activities,
+This form was selected because it clearly represents business process activities, control flows, conditional branching, and parallel execution. It also allows the communication between NotificationService and Reader to be shown.
+
+The Activity Diagram was chosen because the process contains several decision points and parallel activities that need to be represented in one consistent notation.

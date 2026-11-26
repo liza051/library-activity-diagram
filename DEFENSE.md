@@ -41,9 +41,11 @@ After a successful reservation is created, two activities are performed in paral
 1. Updating the BookCopy status to `reserved`.
 2. Sending a confirmation notification to the Reader.
 
+The NotificationService sends the confirmation message, and the Reader receives it.
+
 Both activities must be completed before the process continues through the Join node.
 
-The NotificationService sends the confirmation message to the Reader. The system does not wait for the Reader to read or respond to the notification.
+The system does not wait for the Reader to read or respond to the notification.
 
 ## 4. Audit and Discrepancies
 
@@ -75,4 +77,4 @@ The project provides an Activity Diagram for the Library Reservation System.
 
 The diagram describes the reservation process, its alternative scenarios, parallel activities, synchronization, and notification communication.
 
-The model is basedon UC-01 from Lab 2 and extends the process description from Lab 3 with additional activity-level details.
+The model is based on UC-01 from Lab 2 and extends the process description from Lab 3 with additional activity-level details.

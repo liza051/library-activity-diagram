@@ -34,9 +34,10 @@ The process does not wait for the Reader to read or respond to the notification.
 - Sender: NotificationService.
 - Receiver: Reader.
 - Message: Reservation confirmation.
-- Expected behavior: the notification is sent without waiting for a response.
-
-The notification branch is completed when the message is sent.
+- After sending the message, Reader receives the confirmation notification.
+- The notification branch continues after the message is received.
+- The process does not wait for an additional response from the Reader.
+- The notification branch joins with the BookCopy status update branch before the process continues.
 
 ## 5. Top 3 Discrepancies and Resolutions
 
